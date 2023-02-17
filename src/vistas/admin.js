@@ -23,11 +23,11 @@ export const admin ={
   
         arrayUsers.forEach(arrayUsers => {
           html+=`    
-          <tr id="${arrayUsers.id}">
-            <th >${arrayUsers.id}</th>
+          <tr>
+            <th>${arrayUsers.id}</th>
             <td>${arrayUsers.nick}</td>
             <td>${arrayUsers.email}</td>
-            <td><button type="button" class="btn btn-danger eliminar" >Eliminar</button></td>
+            <td><button data-set="${arrayUsers.id}" type="button" class="btn btn-danger eliminar" >Eliminar</button></td>
             <td><button type="button" class="btn btn-info editar">Editar</button></td>
           </tr>
           `
@@ -42,8 +42,9 @@ export const admin ={
         const botonesEliminar = document.querySelectorAll(".eliminar");
 
         botonesEliminar.forEach(botonEliminar => {
-          botonEliminar.addEventListener("click", () => {
-            alert(`Se hizo clic en el botón eliminar`);
+          botonEliminar.addEventListener("click", (event) => {
+            const userId = event.target.getAttribute('data-set') 
+            alert(`Se hizo clic en el botón eliminar en el del usuario con id ${userId}`);
 
             const fila = botonEliminar.parentNode.parentNode;
             fila.classList.add("fila-oculta");
