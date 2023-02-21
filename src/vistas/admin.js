@@ -1,7 +1,9 @@
 import {arrayUsers} from "../componentes/adminUsuarios"
+import { registre } from "../componentes/registre";
 
 export const admin ={
     template:`
+    ${registre.template}
     <table class="table" id="tabla">
       <thead>
         <tr>
@@ -18,7 +20,9 @@ export const admin ={
     </table>
     `,
     script:()=>{
-  
+
+      registre.script()
+
         let html=``
   
         arrayUsers.forEach(arrayUsers => {
